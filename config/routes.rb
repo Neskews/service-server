@@ -2,9 +2,10 @@ Rails.application.routes.draw do
   get 'welcome/index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
-  resources :persons
+  resources :people
+  get 'people/remove/:id', to: 'people#destroy'
 
-  delete 'remove', to: 'persons#destroy'
+  resources :offers
 
   root 'welcome#index'
 end
