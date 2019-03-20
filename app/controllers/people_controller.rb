@@ -17,10 +17,7 @@ class PeopleController < ApplicationController
     end
 
     def create
-        @person = Person.new(params[:name])
-
-        puts "--->---"
-        puts @person.inspect
+        @person = Person.new(person_params)
 
         @person.save
         render json: @person.to_json
@@ -39,6 +36,6 @@ class PeopleController < ApplicationController
 
     private
         def person_params
-            params.permit(:name)
+            params.permit(:first_name, :last_name)
         end
 end
