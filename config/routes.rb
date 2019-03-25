@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   resources :people
   get 'people/remove/:id', to: 'people#destroy'
+  post 'people/increase_points/:id', to: 'people#increase_points'
 
   resources :offers
 

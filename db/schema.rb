@@ -10,13 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_20_215402) do
+ActiveRecord::Schema.define(version: 2019_03_25_173822) do
 
   create_table "offers", force: :cascade do |t|
-    t.string "type"
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "times_booked"
+    t.float "average_score"
   end
 
   create_table "people", force: :cascade do |t|
@@ -24,6 +25,7 @@ ActiveRecord::Schema.define(version: 2019_03_20_215402) do
     t.datetime "updated_at", null: false
     t.string "last_name"
     t.string "first_name"
+    t.integer "points", default: 0
   end
 
 end
