@@ -1,0 +1,18 @@
+<table>
+  <thead>
+    <% Badge.column_names.each do |badge| %>
+      <th><%= badge %></th>
+    <% end %>
+  </thead>
+  <body>
+    <% @badges.each do |badge| %>
+      <tr>
+        <% badge.attributes.each do |key, value| %>
+          <td><%= value %></td>
+        <% end %>
+      </tr>
+    <% end %>
+  </body>
+</table>
+
+<a href="<%= welcome_index_url %>">Übersicht</a>

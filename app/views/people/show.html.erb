@@ -1,0 +1,9 @@
+<p id="notice"><%= notice %></p>
+
+<% @person.attributes.each do |key, value| %>
+  <p>
+    <span><%= key %></span>: <span><%= value %></span>
+  </p>
+<% end %>
+
+<%= link_to 'All persons', people_path %>

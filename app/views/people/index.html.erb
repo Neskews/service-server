@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<h1>People</h1>
+
+<table>
+  <thead>
+    <tr>
+      <% Person.column_names.each do |column_name| %>
+        <th><%= column_name %></th>
+      <% end %>
+    </tr>
+  </thead>
+  <tbody>
+    <% @people.each do |person| %>
+      <tr>
+        <% person.attributes.each do |key, value| %>
+          <td><%= value %></td>
+        <% end %>
+        <td><%= link_to 'Edit', edit_person_path(person) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'New Person', new_person_path %>

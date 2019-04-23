@@ -1,0 +1,26 @@
+<%= form_with(model: person, local: true) do |form| %>
+  <% if person.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(person.errors.count, "error") %> prohibited this person from being saved:</h2>
+
+      <ul>
+        <% person.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <% exclude_columns = ["id", "created_at", "updated_at"] %>
+  <% columns = Person.column_names - exclude_columns %>
+  <% columns.each do |column| %>
+    <div class="field">
+      <%= form.label column %>
+      <%= form.text_field column %>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
